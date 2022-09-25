@@ -9,11 +9,11 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link " href="#">Kategori</a>
+          <a class="nav-link {{ Request::is('categories*') ? 'active' : ''}}" href="{{ route('categories.index') }}">Kategori</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="#">Produk</a>
+          <a class="nav-link {{ Request::is('products*') ? 'active' : ''}}" href="{{ route('products.index') }}">Produk</a>
         </li>
 
       </ul>
@@ -25,7 +25,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <form action="" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                   @csrf
                   <button type="submit" class="dropdown-item">
                     <i class="bi bi-box-arrow-right"></i> Logout
