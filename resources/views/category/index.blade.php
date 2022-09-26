@@ -20,7 +20,11 @@
           </div>
           <div class="card-body mb-1">
 
-            <table id="categoryTable" class="table table-striped">
+            <button type="button" class="mb-3 btn btn-sm btn-primary btn-add">
+              Tambah
+            </button>
+
+            <table id="categoryTable" class="table table-border table-hover">
               <thead>
                 <tr>
                   <th></th>
@@ -63,6 +67,7 @@
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $(document).ready(function() {
       const table = $('#categoryTable').DataTable({
@@ -88,6 +93,37 @@
         let id = data.id
         let type = data.type
 
+        if (type == 'delete') {
+          Swal.fire({
+            title: 'Yakin hapus kategori ini?',
+            text: "Data akan terhapus permanen!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#3d5c5c',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+          }).then((result) => {
+            console.log(result);
+            if (result.isConfirmed) {
+              $.ajax({
+                method: 'delete',
+                url: `{{ url('categories/') }}/${id}`,
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(res) {
+                  table.ajax.reload()
+                  Swal.fire(
+                    'Terhapus!',
+                    res.message
+                  )
+                }
+              })
+            }
+          })
+          return
+        }
+
         $.ajax({
           method: 'get',
           url: `{{ url('categories/') }}/${id}/edit`,
@@ -95,7 +131,7 @@
             $('#modalAction').find('.modal-dialog').html(res)
             modalAction.show()
             $('#modalActionLabel').text('Edit Data Kategori')
-            $('#modalAction').find('.btn-primary').text('Update')
+            $('#modalAction').find('.btn-success').text('Update')
             save()
           }
         })
@@ -122,6 +158,10 @@
             success: function(res) {
               table.ajax.reload()
               modalAction.hide()
+                Swal.fire(
+                    'Terupdate!',
+                    res.message
+                  )
             },
             error: function(res) {
               let errors = res.responseJSON?.errors
