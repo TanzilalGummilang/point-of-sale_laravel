@@ -33,7 +33,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.action', ['category' => new Category()]);
     }
 
     /**
@@ -42,9 +42,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        Category::create($request->all());
+        return response()->json([
+            'status' => '200',
+            'message' => 'Tambah kategori berhasil!'
+        ]);
     }
 
     /**

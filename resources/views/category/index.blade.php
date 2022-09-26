@@ -20,7 +20,7 @@
           </div>
           <div class="card-body mb-1">
 
-            <button type="button" class="mb-3 btn btn-sm btn-primary btn-add">
+            <button type="button" class="mb-3 btn btn-sm btn-primary btnAdd">
               Tambah
             </button>
 
@@ -87,6 +87,20 @@
       })
 
       const modalAction = new bootstrap.Modal($('#modalAction'))
+
+      $('.btnAdd').on('click', function() {
+        $.ajax({
+          method: 'get',
+          url: `{{ url('categories/create') }}`,
+          success: function(res) {
+            $('#modalAction').find('.modal-dialog').html(res)
+            modalAction.show()
+            $('#modalActionLabel').text('Tambah Data Kategori')
+            $('#modalAction').find('.btn-success').text('Simpan')
+            save()
+          }
+        })
+      })
 
       table.on('click', '.action', function() {
         let data = $(this).data()
@@ -159,7 +173,7 @@
               table.ajax.reload()
               modalAction.hide()
                 Swal.fire(
-                    'Terupdate!',
+                    'Berhasil!',
                     res.message
                   )
             },
