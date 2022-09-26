@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function data()
+    {
+        return DataTables::of(Category::query())
+            ->addColumn('action', function($row) {
+                $action = '';
+                $action .= '<button data-id=' . $row->id . ' data-type="edit" class="btn btn-sm btn-warning action">Edit</button>';
+                $action .= ' <button data-id=' . $row->id . ' data-type="delete" class="btn btn-sm btn-danger action">Hapus</button>';
+                return $action;
+            })
+            ->make(true);
+    }
+    
     public function index()
     {
-        return view('category.index', [
-            'categories' => Category::all()
-        ]);
+        return view('category.index');
     }
 
     /**
@@ -59,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('category.action', compact('category'));
     }
 
     /**
@@ -69,9 +76,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->name = $request->name;
+        $category->save();
+        return response()->json([
+            'status' => '200',
+            'message' => 'Update berhasil!'
+        ]);
     }
 
     /**

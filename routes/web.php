@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function() {
+    Route::get('data', [CategoryController::class, 'data'])->name('categories.data');
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
 });
