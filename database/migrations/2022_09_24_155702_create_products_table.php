@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id');
+            $table->string('name');
+            $table->string('brand');
+            $table->decimal('purchase_price', 24);
+            $table->decimal('selling_price', 24);
+            $table->tinyInteger('discount')->default(0);
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }
