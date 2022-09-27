@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SellingTransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +27,9 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('data', [CategoryController::class, 'data'])->name('categories.data');
+    Route::get('categories/data', [CategoryController::class, 'data'])->name('categories.data');
     Route::resource('categories', CategoryController::class)->except('show');
-    Route::get('data', [ProductController::class, 'data'])->name('products.data');
+    Route::get('products/data', [ProductController::class, 'data'])->name('products.data');
     Route::resource('products', ProductController::class)->except('show');
+    Route::get('transactions/sellings', [SellingTransactionController::class, 'index'])->name('transactions.sellings.index');
 });

@@ -15,11 +15,11 @@
           <a class="nav-link {{ Request::is('products*') ? 'active' : ''}}" href="{{ route('products.index') }}">Produk</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle {{ Request::is('transactions*') ? 'active' : ''}}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Transaksi
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Penjualan</a></li>
+            <li><a class="dropdown-item {{ Request::is('transactions/sellings*') ? 'active' : ''}}" href="{{ route('transactions.sellings.index') }}">Penjualan</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Pembelian</a></li>
           </ul>
