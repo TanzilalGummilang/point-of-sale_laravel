@@ -27,6 +27,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function() {
     Route::get('data', [CategoryController::class, 'data'])->name('categories.data');
-    Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class)->except('show');
+    Route::get('data', [ProductController::class, 'data'])->name('products.data');
+    Route::resource('products', ProductController::class)->except('show');
 });
