@@ -82,7 +82,7 @@
           { data: 'name', name: 'name', title: 'Nama' },
           { data: 'created_at', name: 'created_at', title: 'Dibuat' },
           { data: 'updated_at', name: 'updated_at', title: 'Diubah' },
-          { data: 'action', name: 'action', title: 'Action' }
+          { data: 'action', name: 'action', title: 'Action', searchable:false, orderable:false }
         ]
       })
 
