@@ -9,4 +9,5 @@
   6. pada file .env, isi koneksi dan nama database dan lainnya. co: DB_CONNECTION=mysql (ini pakai dbms apa), DB_DATABASE=namanya_bebas (saran saya samakan dengan nama projectnya), DB_USERNAME=root DB_PASSWORD= (defaultnya seperti ini).
   7. create database nya di dbms dan namanya harus sama dengan DB_DATABASE
   8. ke terminal ketik "php artisan migrate --seed". (pakai --seed karena saya ada sedikit sample factory data nya di file seedernya, tidak pakai juga ga masalah)
-  9. ke terminal ketik "php artisan serve" untuk jalanin server laravelnya (atau pake apache juga boleh), lalu buka di web browser projectnya
+  9. ke terminal ketik "npm i/npm install", setelah beres instal lalu "npm run dev"
+  10. ke terminal ketik "php artisan serve" untuk jalanin server laravelnya (atau pake apache juga boleh), lalu buka di web browser projectnya
