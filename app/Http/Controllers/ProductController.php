@@ -65,9 +65,9 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->brand = $request->brand;
-        $product->purchase_price = $request->purchase_price;
+        $product->purchased_price = $request->purchased_price;
         $product->selling_price = $request->selling_price;
-        $product->discount = $request->discount;
+        $product->selling_discount = $request->selling_discount;
         $product->stock = $request->stock;
         $product->save();
         return response()->json([

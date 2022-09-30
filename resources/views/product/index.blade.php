@@ -192,6 +192,7 @@
             },
             error: function(res) {
               let errors = res.responseJSON?.errors
+              console.log(errors);
               $(_form).find('.text-danger').remove()
               if (errors) {
                 for (const [key, value] of Object.entries(errors)) {
