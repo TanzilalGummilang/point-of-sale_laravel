@@ -16,43 +16,57 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $field = [
-            'discount' => 0,
+            'selling_discount' => 0,
             'stock' => 10
         ];
 
         Product::create(array_merge([
             'category_id' => 1,
-            'name' => 'djarum super 12btg',
+            'name' => 'djarum super 12btg/slop',
             'brand' => 'djarum',
-            'purchase_price' => 200000,
+            'purchased_price' => 200000,
             'selling_price' => 220000,
         ], $field));
         Product::create(array_merge([
             'category_id' => 1,
-            'name' => 'gudang garam filter 12btg',
+            'name' => 'gudang garam filter 12btg/slop',
             'brand' => 'gudang garam',
-            'purchase_price' => 200000,
+            'purchased_price' => 200000,
             'selling_price' => 220000,
         ], $field));
         Product::create(array_merge([
             'category_id' => 1,
-            'name' => 'sampurna mild 12btg',
+            'name' => 'sampurna mild 12btg/slop',
             'brand' => 'sampurna',
-            'purchase_price' => 180000,
+            'purchased_price' => 180000,
             'selling_price' => 200000,
         ], $field));
         Product::create(array_merge([
             'category_id' => 2,
-            'name' => 'kapal api special mix sachet 24gr',
+            'name' => 'kapal api special mix sachet 24gr/renceng',
             'brand' => 'kapal api',
-            'purchase_price' => 9000,
+            'purchased_price' => 9000,
             'selling_price' => 10000,
         ], $field));
         Product::create(array_merge([
             'category_id' => 2,
-            'name' => 'abc susu sachet 24gr',
+            'name' => 'abc susu sachet 24gr/renceng',
             'brand' => 'abc',
-            'purchase_price' => 8000,
+            'purchased_price' => 8000,
+            'selling_price' => 9000,
+        ], $field));
+        Product::create(array_merge([
+            'category_id' => 3,
+            'name' => 'teh sosro 1lt/botol',
+            'brand' => 'sosro',
+            'purchased_price' => 8000,
+            'selling_price' => 9000,
+        ], $field));
+        Product::create(array_merge([
+            'category_id' => 3,
+            'name' => 'teh kotak 500ml/botol',
+            'brand' => 'ultrajaya',
+            'purchased_price' => 8000,
             'selling_price' => 9000,
         ], $field));
     }

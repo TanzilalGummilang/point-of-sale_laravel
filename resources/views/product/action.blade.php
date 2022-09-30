@@ -34,9 +34,9 @@
           value="{{ $product->brand }}">
       </div>
       <div class="mb-3">
-        <label for="purchase_price" class="form-label">Harga Beli</label>
-        <input type="number" placeholder="Input Here" class="form-control" id="purchase_price" name="purchase_price"
-          value="{{ (int)$product->purchase_price }}">
+        <label for="purchased_price" class="form-label">Harga Beli</label>
+        <input type="number" placeholder="Input Here" class="form-control" id="purchased_price" name="purchased_price"
+          value="{{ (int)$product->purchased_price }}">
       </div>
       <div class="mb-3">
         <label for="selling_price" class="form-label">Harga Jual</label>
@@ -44,9 +44,9 @@
           value="{{ (int)$product->selling_price }}">
       </div>
       <div class="mb-3">
-        <label for="discount" class="form-label">Discount</label>
-        <input type="number" placeholder="Input Here" class="form-control" id="discount" name="discount"
-          value="{{ $product->discount }}">
+        <label for="selling_discount" class="form-label">Diskon Jual (%)</label>
+        <input type="number" placeholder="Input Here" class="form-control" id="selling_discount" name="selling_discount"
+          value="{{ $product->selling_discount }}">
       </div>
       <div class="mb-3">
         <label for="stock" class="form-label">Stok</label>

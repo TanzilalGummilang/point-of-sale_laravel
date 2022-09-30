@@ -81,8 +81,8 @@
           { data: 'name', name: 'name', title: 'Nama' },
           { data: 'brand', name: 'brand', title: 'Merek' },
           { 
-            data: 'purchase_price',
-            name: 'purchase_price',
+            data: 'purchased_price',
+            name: 'purchased_price',
             title: 'Harga Beli',
             width: 110,
             render: rupiah
@@ -94,7 +94,7 @@
             width: 110,
             render: rupiah
           },
-          { data: 'discount', name: 'discount', title: 'Diskon %' },
+          { data: 'selling_discount', name: 'selling_discount', title: 'Diskon Jual (%)' },
           { data: 'stock', name: 'stock', title: 'Stok' },
           { data: 'created_at', name: 'created_at', title: 'Dibuat' },
           { data: 'updated_at', name: 'updated_at', title: 'Diubah' },

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->string('name');
             $table->string('brand');
-            $table->decimal('purchase_price', 24);
+            $table->decimal('purchased_price', 24);
             $table->decimal('selling_price', 24);
-            $table->tinyInteger('discount')->default(0);
+            $table->tinyInteger('selling_discount')->default(0);
             $table->integer('stock')->default(0);
             $table->timestamps();
         });
