@@ -77,7 +77,7 @@
         order: [9, 'desc'],
         columns: [
           { data: 'id', name: 'id', visible: false},
-          { data: 'category.name', name: 'category_id', title: 'Kategori' },
+          { data: 'category.name', name: 'category.name', title: 'Kategori' },
           { data: 'name', name: 'name', title: 'Nama' },
           { data: 'brand', name: 'brand', title: 'Merek' },
           { 
