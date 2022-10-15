@@ -1,5 +1,5 @@
-- Aplikasi Inventory Produk Sederhana
-- Tools: Laravel 9, Blade, PHP 8.0, Javascript, Bootstrap 5, Laragon/xampp, VSCode, Chrome, Yajra datatable v10.
+- Aplikasi Point Of Sale
+- Tools: Laravel 9, Blade, PHP 8.0, Javascript, Jquery, Bootstrap 5, Laragon/xampp, VSCode, Chrome, Yajra datatable v10.
 - Cara Clone Project:
   1. clone projectnya bisa pake gitbash, (git clone https://projectnya...)
   2. buka projectnya di text editor (vscode)
